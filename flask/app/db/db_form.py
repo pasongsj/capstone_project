@@ -25,8 +25,6 @@ def get_data_value(obj):#insert into 에 사용할 value 생성
 			d = datetime.date.today()
 			t = datetime.time(14,59,59)
 			dDate = datetime.datetime.combine(d, t)
-
-
 	rCode = int(obj['idx'])
 	cAt = datetime.datetime.utcnow()
 	uAt = datetime.datetime.utcnow()
@@ -34,8 +32,25 @@ def get_data_value(obj):#insert into 에 사용할 value 생성
 	return data
 
 
+def find_id(table, condit, compare, subid):
+	
+	conn = psycopg2.connect("host = localhost dbname=recruit user=brown password=brown port=5432")
+	cur = conn.cursor()
+	if subid == None:
+		query = f"SELECT id FROM {table} WHERE {condit} = {compare}"
+	else :
+		query = f"SELECT COALESCE({subid}, id) FROM {table} WHERE {condit} = {compare}"
+	cur.execute(query)
+	(getid,) = cur.fetchone()
+	conn.close()	
+	return getid
+
+
+
+
 def recruit_db(recruit_data): # save db
 	conn = psycopg2.connect("host = localhost dbname=recruit user=brown password=brown port=5432")
+	conn.autocommit = True
 	cur = conn.cursor()
 	recruit_query = """ INSERT INTO recruit (companyName, recruitTitle,recruitCareer,recruitSchool,recruitCondition,recruitLocation,dueDate,dueType,recruitCode,createdAt,updatedAt) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
@@ -46,37 +61,27 @@ def recruit_db(recruit_data): # save db
 		data = get_data_value(info)
 		cur.execute(recruit_query, data)
 		tmp = int(info['idx'])
-		tmp_query = f"SELECT id FROM Recruit WHERE recruitCode = {tmp}"
-		cur.execute(tmp_query)
-		(row,) = cur.fetchone()
+		row = find_id("Recruit", "recruitCode", tmp,None)
 
 		if(len(info["stack"])>0):
 			for estack in info["stack"]:
-				techstack_query = f"SELECT id FROM Techstack WHERE stackCode = {estack}"
-				cur.execute(techstack_query)
-				(techstack_id,) = cur.fetchone()
-				tmp_data = (row,techstack_id)
-				cur.execute(techstack_query, tmp_data)
+				stack_id = find_id("Techstack", "stackCode",estack,None)	
+				cur.execute(techstack_query, (row,stack_id))
 
 		if(len(info["task"])>0):
 			for etask in info["task"]:
-				stack_query = f"SELECT COALESCE(duplicateid, id) FROM Task WHERE taskCode = {etask}"
-				cur.execute(stack_query)
-				(task_id,) = cur.fetchone()			
-				tmp_data = (row,task_id)
-				cur.execute(task_query,tmp_data)
-		
-		
-	conn.commit()
-	conn.close()
+				task_id = find_id("Task", "taskCode",etask,"duplicateid")	
+				cur.execute(task_query,(row,task_id))
 
+	if conn:
+		conn.close()
 	return {'commit': 'success'}
 
 def task_db(data): # save db
 
 	conn = psycopg2.connect("host = localhost dbname=recruit user=brown password=brown port=5432")
+	conn.autocommit = True
 	cur = conn.cursor()
-
 	task_query = """INSERT INTO tasktostack (id2, stack, num, createdAt) VALUES (%s, %s, %s, %s) """
 
 	task_list = list(data.keys())
@@ -84,37 +89,31 @@ def task_db(data): # save db
 		if(len(info)>0):
 			for estack in info.keys():
 				tmp = task_list[index]
-				query = f"SELECT id from Task WHERE taskcode = {tmp}"
-				cur.execute(query)
-				(id2,) = cur.fetchone()
+				id2 = find_id("Task","taskCode",tmp,None)	
 				stack = str(estack)
 				num = int(info[stack])
 				createdAt = datetime.datetime.utcnow()
-				tmp_data = (int(id2), stack,num, createdAt)	
+				tmp_data = (id2, stack,num, createdAt)	
 				cur.execute(task_query, tmp_data)
 
-	conn.commit()
 	conn.close()
 
 	return {'commit': 'success'}
 
 def stack_db(data):
 	conn = psycopg2.connect("host = localhost dbname=recruit user=brown password=brown port=5432")
+	conn.autocommit = True
 	cur = conn.cursor()
-
 	stack_query = """INSERT INTO stacktostack (id2,stack, innerstack, createdAt) VALUES (%s, %s, %s, %s) """
 
 	for info in data.keys():
-		query = f"SELECT id from Task WHERE taskcode = {info}"
-		cur.execute(query)
-		(id2,) = cur.fetchone()
+		id2 = find_id("Task","taskCode",info,None)	
 		for main_stack in data[info]:
 			for sub_stack in data[info][main_stack]:
 				now = datetime.datetime.utcnow()
 				tmp_data = (id2, main_stack, sub_stack,now)
 				cur.execute(stack_query, tmp_data)
 
-	conn.commit()
 	conn.close()
 
 	return {'commit': 'success'}

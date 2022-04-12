@@ -200,7 +200,7 @@ def get_recruit():
 		if(info[len(info)-1]['reg'] == '(1일 전 등록)'):
 			info.pop()
 			break
-		break
+		
 		
 		
 		
