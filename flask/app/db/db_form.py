@@ -37,7 +37,7 @@ def find_id(table, condit, compare, subid):
 	conn = psycopg2.connect("host = localhost dbname=recruit user=brown password=brown port=5432")
 	cur = conn.cursor()
 	if subid == None:
-		query = f"SELECT id FROM {table} WHERE {condit} = {compare}"
+		query = f"SELECT max(id) FROM {table} WHERE {condit} = {compare}"
 	else :
 		query = f"SELECT COALESCE({subid}, id) FROM {table} WHERE {condit} = {compare}"
 	cur.execute(query)
