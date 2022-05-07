@@ -203,7 +203,6 @@ def get_recruit():
 		
 		
 		
-		
 	result = get_stack(info) 
 	fin = sep_stack(result)
     

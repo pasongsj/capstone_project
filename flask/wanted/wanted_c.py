@@ -312,7 +312,7 @@ def get_wanted_info():
         result.extend(jobs)
     fin = getDetail(result)
     
-    with open('wanted_220411.json','w',encoding='utf-8') as f:
+    with open('wanted_220427.json','w',encoding='utf-8') as f:
         json.dump(fin ,f,default=str,ensure_ascii=False)
 
     return fin
