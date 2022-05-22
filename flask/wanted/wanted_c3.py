@@ -50,7 +50,7 @@ def getInfo(category):
 
     browser = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)	#  '중요' chromedriver 위치 ex) '/usr/local/bin/chromdriver.exe'
     
-    URL = 'https://www.wanted.co.kr/wdlist/'+str(category)+'?country=kr&job_sort=job.latest_order&years=-1&locations=all'   
+    URL =   
     browser.get(URL);	# 페이지 열기
     browser.implicitly_wait(5)#로딩 대기
 
