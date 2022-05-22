@@ -1,0 +1,36 @@
+PODS:
+  - Charts (4.0.2):
+    - Charts/Core (= 4.0.2)
+  - Charts/Core (4.0.2):
+    - SwiftAlgorithms (~> 1.0)
+  - ReusableKit (3.0.0):
+    - ReusableKit/Core (= 3.0.0)
+  - ReusableKit/Core (3.0.0)
+  - SnapKit (5.6.0)
+  - SwiftAlgorithms (1.0.0)
+  - Then (3.0.0)
+
+DEPENDENCIES:
+  - Charts
+  - ReusableKit
+  - SnapKit
+  - Then
+
+SPEC REPOS:
+  trunk:
+    - Charts
+    - ReusableKit
+    - SnapKit
+    - SwiftAlgorithms
+    - Then
+
+SPEC CHECKSUMS:
+  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
+  ReusableKit: e5f853ad4652e411f96b6119b2488afa12929be6
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+
+PODFILE CHECKSUM: a9d26cfc14c4b831732f954e84edcb678d68928a
+
+COCOAPODS: 1.11.3
