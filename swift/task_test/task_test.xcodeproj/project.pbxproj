@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11009C0E283A74D500A5C345 /* RepoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */; };
+		11009C11283A79A700A5C345 /* RepoSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C10283A79A700A5C345 /* RepoSelectCell.swift */; };
+		11009C13283A899D00A5C345 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C12283A899D00A5C345 /* ResultViewController.swift */; };
 		1140B1642834F07B005215D0 /* preViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140B1632834F07B005215D0 /* preViewController.swift */; };
 		114FACD428367E1300528DDF /* DetailStackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */; };
 		114FACD6283695AF00528DDF /* nextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114FACD5283695AF00528DDF /* nextViewController.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSelectViewController.swift; sourceTree = "<group>"; };
+		11009C10283A79A700A5C345 /* RepoSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSelectCell.swift; sourceTree = "<group>"; };
+		11009C12283A899D00A5C345 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		1140B1632834F07B005215D0 /* preViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStackTableViewCell.swift; sourceTree = "<group>"; };
 		114FACD5283695AF00528DDF /* nextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11009C0C283A707B00A5C345 /* trend */ = {
+			isa = PBXGroup;
+			children = (
+				114FACD728369B2500528DDF /* stackTableViewCell2.swift */,
+				114FACD5283695AF00528DDF /* nextViewController.swift */,
+				114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */,
+				11D83C8C28366E3500244FA0 /* Stack1ViewController.swift */,
+				11BBEDF328364888003EAA1C /* stackTableViewCell.swift */,
+				1140B1632834F07B005215D0 /* preViewController.swift */,
+			);
+			path = trend;
+			sourceTree = "<group>";
+		};
+		11009C0F283A791800A5C345 /* repo */ = {
+			isa = PBXGroup;
+			children = (
+				11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */,
+				11009C10283A79A700A5C345 /* RepoSelectCell.swift */,
+			);
+			path = repo;
+			sourceTree = "<group>";
+		};
 		119E53FE2834D81B00562C5D = {
 			isa = PBXGroup;
 			children = (
@@ -77,16 +105,13 @@
 		119E54092834D81C00562C5D /* task_test */ = {
 			isa = PBXGroup;
 			children = (
+				11009C12283A899D00A5C345 /* ResultViewController.swift */,
+				11009C0F283A791800A5C345 /* repo */,
+				11009C0C283A707B00A5C345 /* trend */,
 				119E540A2834D81C00562C5D /* AppDelegate.swift */,
 				119E540C2834D81C00562C5D /* SceneDelegate.swift */,
 				119E540E2834D81C00562C5D /* ViewController.swift */,
 				119E54102834D81C00562C5D /* Main.storyboard */,
-				114FACD728369B2500528DDF /* stackTableViewCell2.swift */,
-				114FACD5283695AF00528DDF /* nextViewController.swift */,
-				114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */,
-				11D83C8C28366E3500244FA0 /* Stack1ViewController.swift */,
-				11BBEDF328364888003EAA1C /* stackTableViewCell.swift */,
-				1140B1632834F07B005215D0 /* preViewController.swift */,
 				119E541E2834DA5F00562C5D /* TaskViewController.swift */,
 				119E54132834D81F00562C5D /* Assets.xcassets */,
 				119E54152834D81F00562C5D /* LaunchScreen.storyboard */,
@@ -227,14 +252,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11009C13283A899D00A5C345 /* ResultViewController.swift in Sources */,
 				1140B1642834F07B005215D0 /* preViewController.swift in Sources */,
 				119E540F2834D81C00562C5D /* ViewController.swift in Sources */,
 				119E541F2834DA5F00562C5D /* TaskViewController.swift in Sources */,
+				11009C0E283A74D500A5C345 /* RepoSelectViewController.swift in Sources */,
 				114FACD6283695AF00528DDF /* nextViewController.swift in Sources */,
 				11D83C8D28366E3500244FA0 /* Stack1ViewController.swift in Sources */,
 				114FACD828369B2500528DDF /* stackTableViewCell2.swift in Sources */,
 				119E540B2834D81C00562C5D /* AppDelegate.swift in Sources */,
 				114FACD428367E1300528DDF /* DetailStackTableViewCell.swift in Sources */,
+				11009C11283A79A700A5C345 /* RepoSelectCell.swift in Sources */,
 				119E540D2834D81C00562C5D /* SceneDelegate.swift in Sources */,
 				11BBEDF428364888003EAA1C /* stackTableViewCell.swift in Sources */,
 			);
