@@ -27,11 +27,14 @@ def Stack():
 	f = open('raw_data.json', 'r')
 	rdr = json.load(f)
 	task_result = cleaning.data_cleaning.get_job_to_stack(rdr)
+#	with open('TaskToStack.json','w',encoding='utf-8') as f:
+#		json.dump(task_result ,f,default=str,ensure_ascii=False)
 	db.db_form.task_db(task_result)	
 	stack_result = cleaning.data_cleaning.get_stack_to_stack(rdr)
+	with open('SaskToStack.json','w',encoding='utf-8') as f:
+		json.dump(stack_result ,f,default=str,ensure_ascii=False)
 	db.db_form.stack_db(stack_result)
 	f.close()
-
 	return {'commit': 'success'} 
 
 
