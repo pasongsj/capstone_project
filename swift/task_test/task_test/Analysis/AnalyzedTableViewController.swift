@@ -14,6 +14,14 @@ class AnalyzedTableViewController: UITableViewController {
     var getStar: Int = 71
     var getStarRepo: String = "dev-in"
     
+    var getLang:[String] = ["R","JS","Python"]
+    var getLangCount:[Int] = [43,20,7]
+    
+    var getUser: String = "pasongsj"
+    var getUserLang: String = "Python"
+    var getTask: String = "서버개발자"
+    var getStack: String = "Flask"
+    
     
     
     
@@ -63,22 +71,33 @@ class AnalyzedTableViewController: UITableViewController {
             return cell
         }
         else if indexPath.section == 2{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath) as! LanguageChartCell
+            cell.lang = getLang
+            cell.langCount = getLangCount
+            
+            return cell
             
         }
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CommitChart", for: indexPath) as! CommitChartCell
+        else if indexPath.section == 3{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StacksCell", for: indexPath) as! StacksShowCell
+            cell.explainStackLabel.text = getUser+"님은"+getUserLang+"(으)로 잘 활용해 왔고, 관심직무인"+getTask+"(으)로 분석결과"+getStack+"(으)로 개발할 것으로 예상됩니다!"
+            return cell
             
-        //cell.commitLineCharts.backgroundColor=UIColor(displayP3Red: 102/255, green: 103/255, blue: 171/255, alpha: 1)
-        
-        //cell.tmp = 1
-    
-
-        // Configure the cell...
-
-        return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MemoirCell", for: indexPath) as! MemoirShowCell
+            cell.contentView.layer.borderColor = UIColor.lightGray.cgColor
+            cell.contentView.layer.borderWidth = 0.3
+            cell.contentView.layer.cornerRadius = 10
+            cell.contentView.clipsToBounds = true
+            cell.contentView.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.97, alpha: 1.00)
+            
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20.0
+        return 17.0
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
@@ -88,7 +107,15 @@ class AnalyzedTableViewController: UITableViewController {
             return 72
             
         }
-        return 220.0
+        else if indexPath.section == 2{
+            return 220
+        }
+        else if indexPath.section == 3{
+            return 80
+        }
+        else{
+            return 120
+        }
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
@@ -113,8 +140,8 @@ class AnalyzedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleLabel = UILabel()
-        titleLabel.frame = CGRect(x: 15, y: 0, width: tableView.frame.size.width, height: 20)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 19)
+        titleLabel.frame = CGRect(x: 15, y: 0, width: tableView.frame.size.width, height: 17)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
 //        titleLabel.backgroundColor = UIColor.yellow
 

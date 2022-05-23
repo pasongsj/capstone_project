@@ -38,12 +38,12 @@ class CommitChartCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func viewCustom(){
-        currCommitView.layer.borderColor = UIColor.black.cgColor
+        currCommitView.layer.borderColor = UIColor.systemGray3.cgColor
         currCommitView.layer.borderWidth = 1
         currCommitView.layer.cornerRadius = 10
         currCommitView.layer.masksToBounds = true
         
-        changedCommitView.layer.borderColor = UIColor.black.cgColor
+        changedCommitView.layer.borderColor = UIColor.systemGray3.cgColor
         changedCommitView.layer.borderWidth = 1
         changedCommitView.layer.cornerRadius = 10
         changedCommitView.layer.masksToBounds = true
