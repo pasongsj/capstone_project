@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11009C0E283A74D500A5C345 /* RepoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */; };
 		11009C11283A79A700A5C345 /* RepoSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C10283A79A700A5C345 /* RepoSelectCell.swift */; };
-		11009C13283A899D00A5C345 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11009C12283A899D00A5C345 /* ResultViewController.swift */; };
 		1140B1642834F07B005215D0 /* preViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1140B1632834F07B005215D0 /* preViewController.swift */; };
 		114FACD428367E1300528DDF /* DetailStackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */; };
 		114FACD6283695AF00528DDF /* nextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114FACD5283695AF00528DDF /* nextViewController.swift */; };
@@ -22,14 +21,17 @@
 		119E54172834D81F00562C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119E54152834D81F00562C5D /* LaunchScreen.storyboard */; };
 		119E541F2834DA5F00562C5D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E541E2834DA5F00562C5D /* TaskViewController.swift */; };
 		11BBEDF428364888003EAA1C /* stackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BBEDF328364888003EAA1C /* stackTableViewCell.swift */; };
+		11C2B074283BC2B10037B2A3 /* AnalyzedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2B073283BC2B10037B2A3 /* AnalyzedTableViewController.swift */; };
+		11C2B076283BC3170037B2A3 /* CommitChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2B075283BC3170037B2A3 /* CommitChartCell.swift */; };
 		11D83C8D28366E3500244FA0 /* Stack1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D83C8C28366E3500244FA0 /* Stack1ViewController.swift */; };
+		11F07B85283BE35900EB1371 /* StarShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F07B84283BE35900EB1371 /* StarShowCell.swift */; };
+		11F07B87283BEA8E00EB1371 /* LanguageChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F07B86283BEA8E00EB1371 /* LanguageChartCell.swift */; };
 		6A049F8B00C634881D9DBF90 /* Pods_task_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3E0724FB4BBFD604388ACBB /* Pods_task_test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSelectViewController.swift; sourceTree = "<group>"; };
+		11009C0D283A74D500A5C345 /* RepoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSelectViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		11009C10283A79A700A5C345 /* RepoSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSelectCell.swift; sourceTree = "<group>"; };
-		11009C12283A899D00A5C345 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		1140B1632834F07B005215D0 /* preViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		114FACD328367E1300528DDF /* DetailStackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStackTableViewCell.swift; sourceTree = "<group>"; };
 		114FACD5283695AF00528DDF /* nextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nextViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +46,11 @@
 		119E54182834D81F00562C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		119E541E2834DA5F00562C5D /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		11BBEDF328364888003EAA1C /* stackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stackTableViewCell.swift; sourceTree = "<group>"; };
+		11C2B073283BC2B10037B2A3 /* AnalyzedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzedTableViewController.swift; sourceTree = "<group>"; };
+		11C2B075283BC3170037B2A3 /* CommitChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitChartCell.swift; sourceTree = "<group>"; };
 		11D83C8C28366E3500244FA0 /* Stack1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack1ViewController.swift; sourceTree = "<group>"; };
+		11F07B84283BE35900EB1371 /* StarShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarShowCell.swift; sourceTree = "<group>"; };
+		11F07B86283BEA8E00EB1371 /* LanguageChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageChartCell.swift; sourceTree = "<group>"; };
 		F3E0724FB4BBFD604388ACBB /* Pods_task_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_task_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1B11A29EDFA363C30415EB /* Pods-task_test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task_test.release.xcconfig"; path = "Target Support Files/Pods-task_test/Pods-task_test.release.xcconfig"; sourceTree = "<group>"; };
 		FFF9995A49D6524ED4089D3B /* Pods-task_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task_test.debug.xcconfig"; path = "Target Support Files/Pods-task_test/Pods-task_test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		119E53FE2834D81B00562C5D = {
 			isa = PBXGroup;
 			children = (
+				11F07B84283BE35900EB1371 /* StarShowCell.swift */,
 				119E54092834D81C00562C5D /* task_test */,
 				119E54082834D81C00562C5D /* Products */,
 				38988A9A9486779E70D37E5A /* Pods */,
@@ -105,19 +112,29 @@
 		119E54092834D81C00562C5D /* task_test */ = {
 			isa = PBXGroup;
 			children = (
-				11009C12283A899D00A5C345 /* ResultViewController.swift */,
+				11C2B06A283BAFF20037B2A3 /* Result */,
 				11009C0F283A791800A5C345 /* repo */,
 				11009C0C283A707B00A5C345 /* trend */,
 				119E540A2834D81C00562C5D /* AppDelegate.swift */,
 				119E540C2834D81C00562C5D /* SceneDelegate.swift */,
 				119E540E2834D81C00562C5D /* ViewController.swift */,
 				119E54102834D81C00562C5D /* Main.storyboard */,
+				11F07B86283BEA8E00EB1371 /* LanguageChartCell.swift */,
+				11C2B075283BC3170037B2A3 /* CommitChartCell.swift */,
+				11C2B073283BC2B10037B2A3 /* AnalyzedTableViewController.swift */,
 				119E541E2834DA5F00562C5D /* TaskViewController.swift */,
 				119E54132834D81F00562C5D /* Assets.xcassets */,
 				119E54152834D81F00562C5D /* LaunchScreen.storyboard */,
 				119E54182834D81F00562C5D /* Info.plist */,
 			);
 			path = task_test;
+			sourceTree = "<group>";
+		};
+		11C2B06A283BAFF20037B2A3 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		38988A9A9486779E70D37E5A /* Pods */ = {
@@ -252,12 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11009C13283A899D00A5C345 /* ResultViewController.swift in Sources */,
 				1140B1642834F07B005215D0 /* preViewController.swift in Sources */,
 				119E540F2834D81C00562C5D /* ViewController.swift in Sources */,
+				11F07B85283BE35900EB1371 /* StarShowCell.swift in Sources */,
 				119E541F2834DA5F00562C5D /* TaskViewController.swift in Sources */,
+				11C2B076283BC3170037B2A3 /* CommitChartCell.swift in Sources */,
+				11C2B074283BC2B10037B2A3 /* AnalyzedTableViewController.swift in Sources */,
 				11009C0E283A74D500A5C345 /* RepoSelectViewController.swift in Sources */,
 				114FACD6283695AF00528DDF /* nextViewController.swift in Sources */,
+				11F07B87283BEA8E00EB1371 /* LanguageChartCell.swift in Sources */,
 				11D83C8D28366E3500244FA0 /* Stack1ViewController.swift in Sources */,
 				114FACD828369B2500528DDF /* stackTableViewCell2.swift in Sources */,
 				119E540B2834D81C00562C5D /* AppDelegate.swift in Sources */,
