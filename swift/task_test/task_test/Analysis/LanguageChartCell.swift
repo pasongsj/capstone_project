@@ -37,13 +37,11 @@ class LanguageChartCell: UITableViewCell {
         format.numberStyle = .none
         let formatter = DefaultValueFormatter(formatter: format)
         pieChartData.setValueFormatter(formatter)
-        // 하단 라벨 지우기
-        //languagePieCharts.legend.enabled = false
-        //languagePieCharts.label = ""
             
         // 4. Assign it to the chart's data
         languagePieCharts.data = pieChartData
         languagePieCharts.extraTopOffset = 0
+        languagePieCharts.drawEntryLabelsEnabled = false
         }
         //파이차트 색상 만들기
         private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {

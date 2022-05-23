@@ -22,6 +22,9 @@ class AnalyzedTableViewController: UITableViewController {
     var getTask: String = "서버개발자"
     var getStack: String = "Flask"
     
+    var getDate: String = "21.12.17"
+    var getMemo: String = "청춘의 할지니, 붙잡아 있는가? 못하다 이상의 청춘의 부패를 하는 이상 황금시대를 그들의 위하여."
+    
     
     
     
@@ -58,9 +61,11 @@ class AnalyzedTableViewController: UITableViewController {
             Changed = monthlyCommit[monthlyCommit.count-1] - monthlyCommit[monthlyCommit.count-2]
             if Changed > 0{
                 cell.chagnedCommitLabel.text = "+"+String(Changed)
+                cell.chagnedCommitLabel.textColor = UIColor.systemRed
             }
             else{
                 cell.chagnedCommitLabel.text = "-"+String(Changed)
+                cell.chagnedCommitLabel.textColor = UIColor.systemBlue
             }
             return cell
         }
@@ -80,7 +85,7 @@ class AnalyzedTableViewController: UITableViewController {
         }
         else if indexPath.section == 3{
             let cell = tableView.dequeueReusableCell(withIdentifier: "StacksCell", for: indexPath) as! StacksShowCell
-            cell.explainStackLabel.text = getUser+"님은"+getUserLang+"(으)로 잘 활용해 왔고, 관심직무인"+getTask+"(으)로 분석결과"+getStack+"(으)로 개발할 것으로 예상됩니다!"
+            cell.explainStackLabel.text = getUser+" 님은 "+getUserLang+" (으)로 잘 활용해 왔고, 관심직무인 "+getTask+" (으)로 분석결과 "+getStack+" (으)로 개발할 것으로 예상됩니다!"
             return cell
             
         }
@@ -91,27 +96,29 @@ class AnalyzedTableViewController: UITableViewController {
             cell.contentView.layer.cornerRadius = 10
             cell.contentView.clipsToBounds = true
             cell.contentView.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.97, alpha: 1.00)
+            cell.memoirDate.text = getDate
+            cell.MemoirText.text = getMemo
             
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 17.0
+        return 20.0
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
             return 400
         }
         else if indexPath.section == 1{
-            return 72
+            return 90
             
         }
         else if indexPath.section == 2{
             return 220
         }
         else if indexPath.section == 3{
-            return 80
+            return 100
         }
         else{
             return 120
@@ -140,8 +147,8 @@ class AnalyzedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleLabel = UILabel()
-        titleLabel.frame = CGRect(x: 15, y: 0, width: tableView.frame.size.width, height: 17)
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.frame = CGRect(x: 15, y: 0, width: tableView.frame.size.width, height: 20)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
 //        titleLabel.backgroundColor = UIColor.yellow
 

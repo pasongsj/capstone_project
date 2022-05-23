@@ -9,7 +9,7 @@ import UIKit
 
 class StacksShowCell: UITableViewCell {
 
-    @IBOutlet weak var explainStackLabel: UITextView!
+    @IBOutlet weak var explainStackLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +18,7 @@ class StacksShowCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        explainStackLabel.numberOfLines = 4
         // Configure the view for the selected state
     }
     

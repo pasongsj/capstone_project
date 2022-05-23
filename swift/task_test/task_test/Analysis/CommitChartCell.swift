@@ -58,8 +58,8 @@ class CommitChartCell: UITableViewCell {
             lineChartEntry.append(value)
         }
         let line1 = LineChartDataSet(entries:lineChartEntry)
-        line1.colors = [.black]
         let LchartDataSet = LineChartData(dataSet:line1)
+        
         commitLineCharts.data = LchartDataSet
     }
        //라인차트 격자 지우기 function
@@ -76,6 +76,7 @@ class CommitChartCell: UITableViewCell {
      
         commitLineCharts.xAxis.drawLabelsEnabled = false
         commitLineCharts.legend.enabled = false
+        //commitLineCharts.chartDescription?.text = " "
            
     }
 
