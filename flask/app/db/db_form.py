@@ -1,6 +1,10 @@
 import psycopg2
 import datetime
 
+localhost ="" 
+brown = ""
+passw = ""
+portnum = ""
 def get_data_value(obj):#insert into 에 사용할 value 생성
 	cName = obj['company']
 	rTitle = obj['title']
@@ -34,7 +38,7 @@ def get_data_value(obj):#insert into 에 사용할 value 생성
 
 def find_id(table, condit, compare, subid):
 	
-	conn = psycopg2.connect("host = localhost dbname=jobup user=brown password=brown port=5432")
+	conn = psycopg2.connect(f"host = {localhost} dbname=jobup user={brown} password={passw} port={portnum}")
 	cur = conn.cursor()
 	if subid == None:
 		query = f"""SELECT max(id) FROM {table} WHERE "{condit}" = {compare}"""
@@ -49,7 +53,7 @@ def find_id(table, condit, compare, subid):
 
 
 def recruit_db(recruit_data): # save db
-	conn = psycopg2.connect("host = localhost dbname=jobup user=brown password=brown port=5432")
+	conn =  psycopg2.connect(f"host = {localhost} dbname=jobup user={brown} password={passw} port={portnum}")
 	conn.autocommit = True
 	cur = conn.cursor()
 	recruit_query = """ INSERT INTO recruit ("companyName", "recruitTitle","recruitCareer","recruitSchool","recruitCondition","recruitLocation","dueDate","dueType","recruitCode","createdAt","updatedAt") VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
@@ -83,7 +87,7 @@ def recruit_db(recruit_data): # save db
 
 def task_db(data): # save db
 
-	conn = psycopg2.connect("host = localhost dbname=jobup user=brown password=brown port=5432")
+	conn =psycopg2.connect(f"host = {localhost} dbname=jobup user={brown} password={passw} port={portnum}")
 	conn.autocommit = True
 	cur = conn.cursor()
 	task_query = """INSERT INTO task_to_stack ("taskId", "stack", "num", "createdAt") VALUES (%s, %s, %s, %s) """
@@ -105,7 +109,7 @@ def task_db(data): # save db
 	return {'commit': 'success'}
 
 def stack_db(data):
-	conn = psycopg2.connect("host = localhost dbname=jobup user=brown password=brown port=5432")
+	conn = psycopg2.connect(f"host = {localhost} dbname=jobup user={brown} password={passw} port={portnum}")
 	conn.autocommit = True
 	cur = conn.cursor()
 	stack_query = """INSERT INTO stack_to_stack ("taskId", "stack", "innerStack", "createdAt") VALUES (%s, %s, %s, %s) """

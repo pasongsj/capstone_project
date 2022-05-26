@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver import ActionChains
 
 
 from webdriver_manager.chrome import ChromeDriverManager #pip install webdriver-manager
@@ -10,10 +9,11 @@ import datetime
 
 
 import json
-
+#import pandas as pd
+#import openpyxl
 
 # 시간 확인용
-import time
+#import time
 #start = time.time()
 
 #명시적대기 headless 오류제거
@@ -23,7 +23,8 @@ from selenium.webdriver.support import expected_conditions as EC
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 #각user의 user-agent값
-options.add_argument('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36')#현재 user-agent 확인필수
+#options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36')#현재 user-agent 확인필수
+options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36')
 
 
 # In[2]:
@@ -32,18 +33,23 @@ options.add_argument('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKi
 def get_info(pages):
     
     #global LIMIT
-    browser = webdriver.Chrome(ChromeDriverManager().install())#,chrome_options=options)
+    browser = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
     #browser = webdriver.Chrome("chromedriver.exe",chrome_options = options)	#chromedriver 위치
+    
     url = 'https://www.saramin.co.kr/zf_user/jobs/list/job-category?cat_mcls=2&panel_type=&search_optional_item=n&search_done=y&panel_count=y&sort=RD&tab_type=all&searchParamCount=1&recruit_kind=recruit&quick_apply=y&page='+str(pages)
 
-    browser.get(url)	# 페이지 열기
-    browser.implicitly_wait(5)
-    some_tag = browser.find_element(By.CSS_SELECTOR,'#content > div.recruit_list_renew > div.common_recruilt_list')
-    ActionChains(browser).move_to_element(some_tag).perform()
 
+    browser.get(url);	# 페이지 열기
+    browser.implicitly_wait(5)
+    #browser.execute_script("window.scrollTo(0,30)")
+    
+    wait = WebDriverWait(browser,20)
+    element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#content > div.recruit_list_renew > div.common_recruilt_list')))
+    
     list_ = browser.find_element(By.CSS_SELECTOR,'#content > div.recruit_list_renew > div.common_recruilt_list')
     #content > div.recruit_list_renew > div.common_recruilt_list
     items = list_.find_elements(By.CSS_SELECTOR,'.list_item')
+
     ann_list = []
     for item in items:
 
@@ -65,8 +71,10 @@ def get_info(pages):
         education = item.find_element(By.CSS_SELECTOR,".education").text
     
         # 근무형태
-        employment_type = item.find_element(By.CSS_SELECTOR,".employment_type").text
-    
+        try:
+            employment_type = item.find_element(By.CSS_SELECTOR,".employment_type").text
+        except Exception as e:
+            employment_type = None #근무형태가 등록되지 않는 경우 
         # 근무 위치
         try:
             work_place = item.find_element(By.CSS_SELECTOR,".work_place").text
@@ -98,6 +106,8 @@ def get_info(pages):
             browser.quit()
             return ann_list
         
+    
+    
     browser.quit()
     return ann_list
 
@@ -108,14 +118,14 @@ def get_info(pages):
 def get_stack(info):
     
 	errorPage = 'https://www.saramin.co.kr/zf_user/recruit/inspection-view'
-	d_browser = webdriver.Chrome(ChromeDriverManager().install())#,chrome_options=options)
+	d_browser = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
 
 
 	d_browser.implicitly_wait(5)
     
 	for e_info in info:
 		d_url = 'https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx='+e_info['idx']
-		
+
         #페이지 접속
 		
 		d_browser.get(d_url)
@@ -124,12 +134,12 @@ def get_stack(info):
 		if(d_browser.current_url == errorPage):
 			pass
 		else:
-			some_tag = d_browser.find_element(By.CSS_SELECTOR,'.tags')
-			action = ActionChains(d_browser)
-			action.move_to_element(some_tag).perform()
         #try: #페이가 준비중인 경우
-		
-
+			wait = WebDriverWait(d_browser,50)
+			element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'.tags')))
+        #except TimeoutExceoption:
+         #   e_info["stack"] = stack
+          #  pass
             #tag접근
 			tag_sec = d_browser.find_element(By.CSS_SELECTOR,'.tags')
 			stacks = tag_sec.find_element(By.CSS_SELECTOR,'.scroll')
@@ -195,7 +205,7 @@ def get_recruit():
 			info.pop()
 			break
 		
-	
+		
 		
 		
 		
@@ -203,8 +213,6 @@ def get_recruit():
 	fin = sep_stack(result)
     
 
-	#with open('saramin_220410.json','w',encoding='utf-8') as f:
-	#	json.dump(fin ,f,default=str,ensure_ascii=False)
 	return fin
     
-get_recruit()
+
